@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f7f4">
+  <meta name="description" content="Explore train schedules across India and ask Railwise, your local AI timetable assistant.">
+  <title>Railwise — find your way</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="Railwise home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="12" fill="currentColor"/><path d="M10 10.5h12a5 5 0 0 1 0 10H10v-10Zm0 10h12a5 5 0 0 1 0 10H10" stroke="#f8f9f5" stroke-width="2.5" stroke-linecap="round"/><path d="M13 15.5h.01M19 15.5h.01" stroke="#f8f9f5" stroke-width="2.8" stroke-linecap="round"/></svg>
+        </span>
+        <span class="brand-name">railwise<span class="brand-period">.</span></span>
+      </a>
+      <nav class="topbar-nav" aria-label="Main navigation">
+        <a class="nav-link active" href="#schedules">Schedules</a>
+        <a class="nav-link" href="#assistant">AI assistant</a>
+      </nav>
+      <div class="topbar-right">
+        <span class="local-badge"><span class="local-dot"></span> Local AI</span>
+        <span class="avatar" aria-label="Guest">G</span>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="eyebrow-line"></span> A BETTER WAY TO GET THERE</div>
+          <h1>Good journeys<br>start <span>right here.</span></h1>
+          <p class="hero-description">Find your train, map out your stops, and let a little local AI help you along the way.</p>
+          <div class="hero-trust"><span class="trust-icon">✳</span> Thoughtful travel planning, all in one place</div>
+        </div>
+        <div class="journey-art" aria-hidden="true">
+          <div class="art-sun"></div>
+          <svg class="art-landscape" viewBox="0 0 500 265" fill="none" preserveAspectRatio="xMidYMax meet">
+            <path d="M0 198 70 120l38 41 70-91 74 94 45-53 85 87h118v67H0z" fill="#e5e9dc"/>
+            <path d="m96 163 82-93 76 95 33-38 87 73H52z" fill="#d7dfcf"/>
+            <path d="M0 218q98-42 196 0t196 0q56-24 108-8v55H0z" fill="#ccd8c1"/>
+            <path d="M0 239h500" stroke="#77886d" stroke-opacity=".45" stroke-width="2"/>
+            <path d="M0 249h500M35 240v18m46-18v18m46-18v18m46-18v18m46-18v18m46-18v18m46-18v18m46-18v18m46-18v18m46-18v18m46-18v18" stroke="#89977e" stroke-opacity=".36" stroke-width="1.5"/>
+            <path d="M59 187h19m-19 7h19m338-28h20m-20 7h20" stroke="#8a9a7e" stroke-opacity=".5" stroke-width="2" stroke-linecap="round"/>
+            <g transform="translate(186 178)">
+              <rect x="13" y="23" width="115" height="46" rx="12" fill="#405944"/>
+              <path d="M22 14h83a22 22 0 0 1 22 22v4H13v-9a17 17 0 0 1 9-17Z" fill="#546f57"/>
+              <path d="M31 21h16v13H25v-5a8 8 0 0 1 6-8Zm22 0h16v13H53V21Zm22 0h16v13H75V21Z" fill="#e5ecdc"/>
+              <path d="M98 21h7a16 16 0 0 1 16 16v1H97V21Z" fill="#e5ecdc"/>
+              <rect x="20" y="44" width="104" height="4" rx="2" fill="#d6b470"/>
+              <circle cx="40" cy="71" r="7" fill="#2b3930"/><circle cx="105" cy="71" r="7" fill="#2b3930"/>
+              <circle cx="40" cy="71" r="3" fill="#c3c9bd"/><circle cx="105" cy="71" r="3" fill="#c3c9bd"/>
+            </g>
+            <g fill="#607559"><circle cx="115" cy="185" r="14"/><circle cx="126" cy="174" r="18"/><circle cx="139" cy="187" r="13"/><rect x="122" y="187" width="9" height="32" rx="4"/><circle cx="358" cy="192" r="14"/><circle cx="370" cy="181" r="18"/><circle cx="384" cy="194" r="14"/><rect x="365" y="194" width="9" height="27" rx="4"/></g>
+          </svg>
+          <div class="art-label"><span class="art-label-dot"></span> YOUR NEXT CHAPTER, ON TRACK</div>
+        </div>
+      </section>
+
+      <section class="search-panel" aria-label="Search train schedules">
+        <div class="search-heading">
+          <div><div class="section-kicker">THE ROUTE FINDER</div><h2>Where to next?</h2></div>
+          <span class="sample-note"><span class="sample-note-dot"></span> Sample timetable</span>
+        </div>
+        <form class="search-form" id="search-form">
+          <label class="field station-field">
+            <span class="field-label">FROM</span>
+            <span class="field-control"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.75"/><path d="m13 13 4 4"/></svg><input id="from-input" autocomplete="off" placeholder="Any departure station"></span>
+          </label>
+          <button class="swap-button" id="swap-button" type="button" aria-label="Swap departure and arrival">
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 7h12m0 0-3-3m3 3-3 3M16 13H4m0 0 3 3m-3-3 3-3"/></svg>
+          </button>
+          <label class="field station-field">
+            <span class="field-label">TO</span>
+            <span class="field-control"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 17s6-5.4 6-10a6 6 0 1 0-12 0c0 4.6 6 10 6 10Z"/><circle cx="10" cy="7" r="2"/></svg><input id="to-input" autocomplete="off" placeholder="Any arrival station"></span>
+          </label>
+          <label class="field date-field">
+            <span class="field-label">TRAVEL DATE</span>
+            <span class="field-control"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="3" y="5" width="14" height="12" rx="2"/><path d="M6.5 3v4m7-4v4M3 9h14"/></svg><input id="date-input" type="date" aria-label="Travel date"></span>
+          </label>
+          <button class="search-button" type="submit"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.75"/><path d="m13 13 4 4"/></svg> Find trains</button>
+        </form>
+        <div class="quick-routes"><span class="quick-label">POPULAR ROUTES</span><button class="route-chip" type="button" data-from="New Delhi" data-to="Mumbai Central">Delhi → Mumbai</button><button class="route-chip" type="button" data-from="Mumbai Central" data-to="New Delhi">Mumbai → Delhi</button><button class="route-chip" type="button" data-from="KSR Bengaluru" data-to="New Delhi">Bengaluru → Delhi</button></div>
+      </section>
+
+      <div class="content-grid" id="schedules">
+        <section class="schedule-section">
+          <div class="section-header">
+            <div><div class="section-kicker">MADE FOR THE MILES</div><h2>Today's timetable<span class="title-period">.</span></h2></div>
+            <span class="results-count" id="results-count">12 routes</span>
+          </div>
+          <div class="filter-row" role="group" aria-label="Filter train type">
+            <button class="filter-button selected" type="button" data-filter="All">All trains</button>
+            <button class="filter-button" type="button" data-filter="Superfast">Superfast</button>
+            <button class="filter-button" type="button" data-filter="Rajdhani">Rajdhani</button>
+            <button class="filter-button" type="button" data-filter="Shatabdi">Shatabdi</button>
+          </div>
+          <div class="train-list" id="train-list" aria-live="polite"></div>
+          <div class="empty-state hidden" id="empty-state"><span class="empty-icon">⌕</span><h3>No trains found</h3><p>Try a different station or change your filters.</p><button class="reset-button" id="reset-button" type="button">Clear search</button></div>
+          <p class="data-disclaimer">Schedules shown are illustrative sample data, not live railway information.</p>
+        </section>
+
+        <aside class="assistant-card" id="assistant">
+          <div class="assistant-top">
+            <div class="assistant-title-row">
+              <span class="assistant-avatar"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2.8 14.4 9l6.4 2.5-6.4 2.4-2.4 6.3-2.5-6.3L3.2 11.5 9.5 9 12 2.8Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="m19 15 .9 2.1 2.1.9-2.1.8L19 21l-.8-2.2-2.2-.8 2.2-.9L19 15Z" fill="currentColor"/></svg></span>
+              <div><h2>Ask Railwise</h2><div class="assistant-online"><span class="online-dot" id="online-dot"></span><span id="connection-status">Checking local AI…</span></div></div>
+              <span class="model-tag">QWEN 2.5</span>
+            </div>
+            <p class="assistant-intro">A little help with the details. Ask me anything about these routes.</p>
+          </div>
+          <div class="chat-messages" id="chat-messages" aria-live="polite" aria-label="Chat messages">
+            <div class="welcome-message"><span class="welcome-spark">✳</span><div><strong>Hi there, traveller.</strong><p>Need help choosing a train or figuring out a route? I'm right here.</p></div></div>
+          </div>
+          <div class="suggestions" id="suggestions"><button type="button" class="suggestion-chip">Which train goes to Mumbai?</button><button type="button" class="suggestion-chip">Show me the fastest trip</button><button type="button" class="suggestion-chip">What stops are on the Delhi–Bhopal route?</button></div>
+          <form class="chat-form" id="chat-form">
+            <label class="sr-only" for="chat-input">Ask Railwise a question</label>
+            <textarea id="chat-input" rows="1" maxlength="4000" placeholder="Ask about a train or route…" required></textarea>
+            <button id="send-button" type="submit" aria-label="Send message"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m3 9 14-6-5.8 14-2.7-5.7L3 9Z"/><path d="M8.5 11.3 17 3"/></svg></button>
+          </form>
+          <div class="chat-footnote">Replies are generated locally with Ollama. Sample data only.</div>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="site-footer"><a class="footer-brand" href="/">railwise<span>.</span></a><span>Go a little further.</span><span>Schedules are examples, not live railway data.</span></footer>
+  </div>
+  <script src="/app.js" defer></script>
+</body>
+</html>
